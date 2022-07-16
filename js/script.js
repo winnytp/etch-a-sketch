@@ -34,15 +34,11 @@ function populateGrid(amount) {
     }
 }
 
-function removeGridItems() {
-    grid.innerHTML = "";
-}
-
 function changeGridSize() {
     let userInput = Number(prompt("Please choose a grid size between 1 - 100:"));
     if (/^[0-9.,]+$/.test(userInput) === false) return alert("Hey! You didn't even enter a number."); // Tests if input contains string characters. If so, return.
     if (userInput > 100 || userInput < 1) return alert("Pick a number that's between 1 - 100 please!"); 
-    removeGridItems();
+    grid.innerHTML = null;
     drawGrid(userInput);
 }
 
