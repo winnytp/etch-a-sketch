@@ -16,7 +16,7 @@ function drawGrid(num) {
 
 function resetColours() {
     let lastIndex = grid.lastChild.dataset.index;
-    console.log(lastIndex);
+    lastIndex = Number(lastIndex) + 1;
     grid.innerHTML = null;
     populateGrid(lastIndex);
 }
