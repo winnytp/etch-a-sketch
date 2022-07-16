@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400;500;600;700&display=swap');
+
 * {
-    font-family: sans-serif;
+    font-family: 'Edu VIC WA NT Beginner', sans-serif;
 }
 
 html, body {
@@ -59,10 +61,12 @@ h1 {
 
 button {
     border: none;
-    padding: 16px 32px;
-    width: 125px;
+    padding: 10px 20px;
+    /* width: 125px; */
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.25);
+    font-size: 18px;
+    border-radius: 3px;
 }
 
 button:hover {
