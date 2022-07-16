@@ -5,43 +5,45 @@ const newGridButton = document.getElementById('new-grid');
 
 // EVENT LISTENERS
 resetButton.addEventListener('click', resetColours);
-newGridButton.addEventListener('click', inputGrid);
+newGridButton.addEventListener('click', changeGridSize);
 
 // Function: Add item squares to grid
-function drawGrid(row, col) {
-    let total = row * col;
-
-    for (let i = 0; i < total; i++) {
-        let div = document.createElement('div');
-        div.classList.add('item');
-        div.setAttribute('data-index', i);
-        div.addEventListener('mouseover', () => div.classList.add('black-bg'));
-        grid.appendChild(div);
-    }
-}
-
-// Function: Define grid parameters
-function defineGrid(num) {
-    grid.style.gridTemplate = `${'1fr '.repeat(num)} / ${'1fr '.repeat(num)}`;
+function drawGrid(num) {
+    let total = num * num;
+    grid.style.gridTemplate = `${'1fr '.repeat(num)} / ${'1fr '.repeat(num)}`
+    populateGrid(total);
 }
 
 function resetColours() {
-    let hovered = document.querySelectorAll('.black-bg');
-    hovered.forEach(node => node.classList.remove('black-bg'));
+    let lastIndex = grid.lastChild.dataset.index;
+    console.log(lastIndex);
+    grid.innerHTML = null;
+    populateGrid(lastIndex);
+}
+
+function populateGrid(amount) {
+    for (let i = 0; i < amount; i++) {
+        let div = document.createElement('div');
+        div.classList.add('item');
+        div.setAttribute('data-index', i);
+        div.addEventListener('mouseover', () => {
+            let randomColour = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+            div.style.backgroundColor = randomColour;
+        });
+        grid.appendChild(div);
+    }
 }
 
 function removeGridItems() {
     grid.innerHTML = "";
 }
 
-function inputGrid() {
+function changeGridSize() {
     let userInput = Number(prompt("Please choose a grid size between 1 - 100:"));
     if (/^[0-9.,]+$/.test(userInput) === false) return alert("Hey! You didn't even enter a number."); // Tests if input contains string characters. If so, return.
     if (userInput > 100 || userInput < 1) return alert("Pick a number that's between 1 - 100 please!"); 
     removeGridItems();
-    defineGrid(userInput);
-    drawGrid(userInput, userInput);
+    drawGrid(userInput);
 }
 
-defineGrid(10);
-drawGrid(10, 10);
+drawGrid(10);
