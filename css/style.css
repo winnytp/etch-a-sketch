@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Manrope:wght@200..800&display=swap');
+
+html, body {
+    background-color: #FAF0E6;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: Borel, Manrope, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 0;
+    color: #4B4B4B;
+}
+
+p, button {
+    font-family: Manrope, sans-serif;
+}
+
+.sketchpad {
+    display: flex;
+    height: 45vh;
+    aspect-ratio: 1/1;
+    border: 1px solid #C4C4C4;
+    border-radius: 0px;
+    flex-wrap: wrap;
+    background-color: white;
+    overflow: hidden;
+}
+
+.box {
+    border: 1px solid #dcdcdc;
+    box-sizing: border-box;
+    width: calc(100% / 7);
+}
+
+.controls {
+    padding-top: 2rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.size-control {
+    font-size: 1.25rem;
+    gap: 1rem;
+}
+
+input[type="number"] {
+    border-radius: 99px;
+    border: 1px solid #C4C4C4;
+    width: 100px;
+    height: 50px;
+}
