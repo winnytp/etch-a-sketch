@@ -48,12 +48,6 @@ function drawGrid(number) {
     // clear sketch container before adding new box items
     sketchContainer.innerHTML = "";
 
-    // check that number input is below 100
-    if (number > 100) {
-        drawGrid(4);
-        return alert('Enter a maximum size of 100.'); 
-    }
-
     // add required divs to sketchpad
     for (let i = 0; i < number * number; i++) {
         const div = document.createElement('div');
